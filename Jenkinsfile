@@ -42,8 +42,7 @@ ZbRzsDEIVItozgYhYISw4vSI7yQHpxOvBIOUMnyNo6JOgvjfoH2u+Zblb7zZg6Xk
 bgl/I40CgYEAilOyMeN4ba9AZiz7juj6e6tM/8mVtuoYn4WksvKz3xJdmhphSDXp
 zW72hW453TRTD6F2FD4BudZanaowrLBwImdp3hwumr4/NlVC2u4Z4OvR8sWR3AZ6
 nQiUmEOcrR2xWxyzntDkAgR6s/0QSuhrRvHNqQBIfzR6EfmR65JC3Hs=
------END RSA PRIVATE KEY----- 
-    -d --instanceurl https://login.salesforce.com/"
+-----END RSA PRIVATE KEY----- -d --instanceurl https://login.salesforce.com/"
 
                 
                 echo 'Deploying....'
