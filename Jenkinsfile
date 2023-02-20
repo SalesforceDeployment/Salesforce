@@ -45,7 +45,7 @@ nQiUmEOcrR2xWxyzntDkAgR6s/0QSuhrRvHNqQBIfzR6EfmR65JC3Hs=
 -----END RSA PRIVATE KEY----- -d --instanceurl https://login.salesforce.com/"
 
                 
-                echo 'Deploying....'
+                echo 'Deploying.... by Thomas'
                 
                
             }
