@@ -18,7 +18,7 @@ pipeline {
             steps {
                  withCredentials([sshUserPrivateKey(credentialsId: 'QA_ID', keyFileVariable: 'CED_SERVER_KEY', passphraseVariable: 'CED_CLIENT_ID', usernameVariable: 'CED_USER')])
                 {
-                   command "sfdx force:auth:jwt:grant -d --instanceurl https://login.salesforce.com/ --clientid $CED_CLIENT_ID --jwtkeyfile $CED_SERVER_KEY --username $CED_USER" 
+                   command "sfdx force:auth:jwt:grant -d --instanceurl https://login.salesforce.com/ --clientid ${CED_CLIENT_ID} --jwtkeyfile ${CED_SERVER_KEY} --username ${CED_USER}" 
                 }
                 echo ""
 
