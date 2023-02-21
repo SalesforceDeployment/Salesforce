@@ -31,10 +31,10 @@ pipeline {
                      echo "${CLIENT_ID}"
                      echo "${USER}"
                      
-
+                    thomas = ${SERVER_KEY}
                 
                 }
-                thomas = 
+                
                 echo 'Deploying.... by Thomas'
                 
                
