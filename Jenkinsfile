@@ -30,7 +30,10 @@ pipeline {
                      echo "${SERVER_KEY}"
                      echo "${CLIENT_ID}"
                      echo "${USER}"
-                     command "sfdx auth:jwt:grant --instanceurl https://login.salesforce.com/ --clientid 3MVG9n_HvETGhr3AOaeLfpd6RsgebHXoalEw8US3cJ7LIRfhy2CtzNqg.7epaDtfv_Ger6kolOIGMpStxWwxi  --username thomasraj@mit.com --jwtkeyfile ${SERVER_KEY}"
+                     //command "sfdx auth:jwt:grant --instanceurl https://login.salesforce.com/ --clientid 3MVG9n_HvETGhr3AOaeLfpd6RsgebHXoalEw8US3cJ7LIRfhy2CtzNqg.7epaDtfv_Ger6kolOIGMpStxWwxi  --username thomasraj@mit.com --jwtkeyfile ${SERVER_KEY}"
+                    
+                    command "sfdx auth:jwt:grant --instanceurl https://login.salesforce.com/ --clientid ${CLIENT_ID} --username ${USER} --jwtkeyfile ${SERVER_KEY}"
+               
                 
                 }
                      
