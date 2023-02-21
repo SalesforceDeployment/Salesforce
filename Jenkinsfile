@@ -47,12 +47,12 @@ println 'KEY IS'
 //         }
     
     
-    withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
+    withCredentials([file(credentialsId: JWT_CRED_ID_DH, variable: 'jwt_key_file')]) {
         stage('Authorize ORG') {
             if (isUnix()) {
-                rc = sh returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} -d --instanceurl ${SFDC_HOST}"
+                rc = sh returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${jwt_key_file} -d --instanceurl ${SF_INSTANCE_URL}"
             } else {
-                rc = bat returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" -d --instanceurl ${SFDC_HOST}"
+                rc = bat returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${jwt_key_file}\" -d --instanceurl ${SF_INSTANCE_URL}"
             }
             
             if (rc != 0) {
