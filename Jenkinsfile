@@ -1,4 +1,5 @@
 pipeline {
+    def thomas
     agent any
 
     stages {
