@@ -11,7 +11,7 @@ node {
 
     
 println 'KEY IS'
-    println SF_CONSUMER_KEY
+    println SF_USERNAME
 
     // -------------------------------------------------------------------------
     // Check out code from source control.
