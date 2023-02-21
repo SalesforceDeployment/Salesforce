@@ -26,25 +26,25 @@ println 'KEY IS'
     stage('checkout source') {
         checkout scm
     }
- withEnv(["HOME=${env.WORKSPACE}"]) {
+//  withEnv(["HOME=${env.WORKSPACE}"]) {
         
-        withCredentials([file(credentialsId: JWT_CRED_ID_DH, variable: 'server_key_file')]) {
+//         withCredentials([file(credentialsId: JWT_CRED_ID_DH, variable: 'server_key_file')]) {
 
-            // -------------------------------------------------------------------------
-            // Authorize the Dev Hub org with JWT key and give it an alias.
-            // -------------------------------------------------------------------------
+//             // -------------------------------------------------------------------------
+//             // Authorize the Dev Hub org with JWT key and give it an alias.
+//             // -------------------------------------------------------------------------
 
-            stage('Authorize DevHub') {
-                rc = bat returnStatus: true, script:"sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file}"
-                if (rc != 0) {
-                    println "sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file}"
-                    error 'Salesforce dev hub org authorization failed.'
-                }
-            }
+//             stage('Authorize DevHub') {
+//                 rc = bat returnStatus: true, script:"sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file}"
+//                 if (rc != 0) {
+//                     println "sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file}"
+//                     error 'Salesforce dev hub org authorization failed.'
+//                 }
+//             }
 
-            }
+//             }
            
-        }
+//         }
     }
 
 
