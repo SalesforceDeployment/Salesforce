@@ -1,5 +1,7 @@
+def thomas
 pipeline {
-    def thomas
+    
+    
     agent any
 
     stages {
@@ -32,7 +34,7 @@ pipeline {
 
                 
                 }
-                
+                thomas = 
                 echo 'Deploying.... by Thomas'
                 
                
