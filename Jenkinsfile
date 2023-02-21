@@ -25,7 +25,7 @@ pipeline {
                 
                 echo 'Deploying....'
                 
-                sfdx force:source:deploy -x manifest/package.xml -u deployment.user@fedex.com.qa22
+                
                  echo 'Deploying....s'
             }
         }
