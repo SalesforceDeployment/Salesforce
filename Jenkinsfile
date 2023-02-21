@@ -10,7 +10,8 @@ node {
     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
 
     
-
+println 'KEY IS'
+    println JWT_KEY_CRED_ID
 
     // -------------------------------------------------------------------------
     // Check out code from source control.
