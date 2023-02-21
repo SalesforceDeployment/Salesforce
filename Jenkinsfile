@@ -37,6 +37,7 @@ println 'KEY IS'
             stage('Authorize DevHub') {
                 rc = command "sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file}"
                 if (rc != 0) {
+                    println "sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file}"
                     error 'Salesforce dev hub org authorization failed.'
                 }
             }
