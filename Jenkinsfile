@@ -14,6 +14,7 @@ pipeline {
             }
             steps {
                 echo "before Testing.. ${SFDX_DETAILS_USR}"
+                 echo "before Testing.. ${SFDX_DETAILS_PSW}"
                 
             }
         }
