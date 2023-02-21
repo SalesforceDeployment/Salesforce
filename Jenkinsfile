@@ -16,6 +16,8 @@ println 'KEY IS'
     println SF_CONSUMER_KEY
     println 'URL IS'
     println SF_INSTANCE_URL
+    println 'JWT IS'
+    println JWT_CRED_ID_DH
 
     // -------------------------------------------------------------------------
     // Check out code from source control.
