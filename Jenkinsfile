@@ -19,7 +19,7 @@ node {
         
          withCredentials([sshUserPrivateKey(credentialsId: 'QA_ID', keyFileVariable: 'CED_SERVER_KEY', passphraseVariable: 'CED_CLIENT_ID', usernameVariable: 'CED_USER')]) {
             stage('Authorize DevHub') {
-                rc = command "sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${CED_SERVER_KEY} --setdefaultdevhubusername --setalias HubOrg"
+                rc = command "sfdx auth:jwt:grant --instanceurl https://login.salesforce.com/ --clientid 3MVG9n_HvETGhr3AOaeLfpd6RsgebHXoalEw8US3cJ7LIRfhy2CtzNqg.7epaDtfv_Ger6kolOIGMpStxWwxi --username ${CED_USER} --jwtkeyfile ${CED_SERVER_KEY} "
                 if (rc != 0) {
                     error 'Salesforce dev hub org authorization failed.'
                 }
