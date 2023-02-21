@@ -20,9 +20,14 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                withCredentials([sshUserPrivateKey(credentialsId: 'QA_ID', keyFileVariable: 'SERVER_KEY', passphraseVariable: 'CLIENT_ID', usernameVariable: 'USER')]) {
                 
 
-                echo ""
+                    echo "${QA_ID}"
+                     echo "${SERVER_KEY}"
+                     echo "${CLIENT_ID}"
+                     echo "${USER}"
+                     echo "${}"
 
                 
                 
