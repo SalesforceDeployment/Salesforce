@@ -13,7 +13,7 @@ pipeline {
                 SFDX_DETAILS = credentials("thomas")
             }
             steps {
-                echo "before Testing.. ${SFDX_DETAILS_PSW}"
+                echo "before Testing.. ${SFDX_DETAILS_USR}"
                 
                 
             }
