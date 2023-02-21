@@ -30,10 +30,8 @@ pipeline {
                      echo "${SERVER_KEY}"
                      echo "${CLIENT_ID}"
                      echo "${USER}"
-                     rc = command "sfdx auth:jwt:grant --instanceurl https://login.salesforce.com/ --clientid 3MVG9n_HvETGhr3AOaeLfpd6RsgebHXoalEw8US3cJ7LIRfhy2CtzNqg.7epaDtfv_Ger6kolOIGMpStxWwxi  --username thomasraj@mit.com --jwtkeyfile ${SERVER_KEY}"
-                if (rc != 0) {
-                    error 'Salesforce dev hub org authorization failed.'
-                }
+                     command "sfdx auth:jwt:grant --instanceurl https://login.salesforce.com/ --clientid 3MVG9n_HvETGhr3AOaeLfpd6RsgebHXoalEw8US3cJ7LIRfhy2CtzNqg.7epaDtfv_Ger6kolOIGMpStxWwxi  --username thomasraj@mit.com --jwtkeyfile ${SERVER_KEY}"
+                
                 }
                      
                   // sfdx force:auth:jwt:grant --clientid 3MVG9n_HvETGhr3AOaeLfpd6RsgebHXoalEw8US3cJ7LIRfhy2CtzNqg.7epaDtfv_Ger6kolOIGMpStxWwxi --username thomasraj@mit.com --jwtkeyfile ${SERVER_KEY}  -d --instanceurl https://login.salesforce.com/
