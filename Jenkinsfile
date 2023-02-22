@@ -64,8 +64,8 @@ println 'KEY IS'
             if (rc != 0) {
                 error 'hub org authorization failed'
             }
-            if (isUnix()) {rmsg = sh returnStdout: true, script: "force:source:deploy --manifest manifest/package.xml -u ${SF_USERNAME}"}
-            else{rmsg = bat returnStdout: true, script: "force:source:deploy --manifest manifest/package.xml -u ${SF_USERNAME}"}
+            if (isUnix()) {rmsg = sh returnStdout: true,  script: "sfdx force:source:deploy --manifest manifest/package.xml -u ${SF_USERNAME}"}
+            else{rmsg = bat returnStdout: true, script: "sfdx force:source:deploy --manifest manifest/package.xml -u ${SF_USERNAME}"}
 println 'I am rc'
             println(rc)
             println(rmsg)
