@@ -54,7 +54,9 @@ println 'KEY IS'
                 dc = bat returnStatus : true script "sfdx force:org:list"
             } else {
                 rc = bat returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${jwt_key_file}\" -d --instanceurl ${SF_INSTANCE_URL}"
-               command "sfdx force:org:list"
+               println 'org list'
+                command "sfdx force:org:list"
+                println 'Deploy'
                 command "sfdx force:source:deploy -x manifest/package.xml -u thomasraj@mit.com"
             }
            
