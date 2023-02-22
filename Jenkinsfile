@@ -58,7 +58,7 @@ println 'KEY IS'
             if (rc != 0) {
                 error 'hub org authorization failed'
             }
-
+println 'I am rc'
             println(rc)
     }
     }
