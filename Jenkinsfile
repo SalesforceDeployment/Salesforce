@@ -51,8 +51,14 @@ println 'KEY IS'
         stage('Authorize ORG') {
             if (isUnix()) {
                 rc = sh returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${jwt_key_file} -d --instanceurl ${SF_INSTANCE_URL}"
+                dc = bat returnStatus : true script "sfdx force:org:list"
             } else {
                 rc = bat returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${jwt_key_file}\" -d --instanceurl ${SF_INSTANCE_URL}"
+               dc = bat returnStatus : true script "sfdx force:org:list"
+            }
+            if(dc!=0)
+            {
+                error 'ORG list'
             }
             
             if (rc != 0) {
