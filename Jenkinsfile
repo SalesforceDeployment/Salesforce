@@ -13,13 +13,13 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    bat 'npm install' // If you have JavaScript code
-                }
-            }
-        }
+        // stage('Install Dependencies') {
+        //     steps {
+        //         script {
+        //             bat 'npm install' // If you have JavaScript code
+        //         }
+        //     }
+        // }
 
         stage('Run SonarQube Analysis') {
             steps {
