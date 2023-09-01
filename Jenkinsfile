@@ -30,7 +30,7 @@ pipeline {
                         bat """
                         ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=Demo \
-                            -Dsonar.sources=./src \
+                            -Dsonar.sources=./force-app/main/default \
                             -Dsonar.host.url=${SONARQUBE_URL} \
                             -Dsonar.login=${SONARQUBE_TOKEN}
                         """
