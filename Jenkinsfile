@@ -1,26 +1,50 @@
-#!groovy
+pipeline {
+    agent any
 
-import groovy.json.JsonSlurperClassic
-
-node {
-
-//     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
-    //def SF_USERNAME=env.HUB_ORG_DH
-//     def JWT_CRED_ID_DH=env.JWT_CRED_ID_DH
-//     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
-
-    
-println 'KEY IS'
-    println SF_USERNAME
-
-    // -------------------------------------------------------------------------
-    // Check out code from source control.
-    // -------------------------------------------------------------------------
-
-    stage('checkout source') {
-        checkout scm
+    environment {
+        SONARQUBE_URL = 'http://localhost:9000' // Replace with your SonarQube server URL
+        SONARQUBE_TOKEN = sqa_777211957f862209118b6b7af01eda379bf538fe // Add your SonarQube authentication token credential ID
     }
 
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    sh 'npm install' // If you have JavaScript code
+                }
+            }
+        }
+
+        stage('Run SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'sonarscanner' // Define 'SonarQube Scanner' tool in Jenkins
+
+                    withSonarQubeEnv('sonarqube') {
+                        sh """
+                        ${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=Demo \
+                            -Dsonar.sources=./src \
+                            -Dsonar.host.url=${SONARQUBE_URL} \
+                            -Dsonar.login=${SONARQUBE_TOKEN}
+                        """
+                    }
+                }
+            }
+        }
+
+        stage('Deploy to Salesforce') {
+            steps {
+                script {
+                    sh 'ant deploy' // Use your Ant deploy target or command
+                }
+            }
+        }
     }
-
-
+}
