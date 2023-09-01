@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SONARQUBE_URL = 'http://localhost:9000' // Replace with your SonarQube server URL
-        SONARQUBE_TOKEN = sqa_777211957f862209118b6b7af01eda379bf538fe // Add your SonarQube authentication token credential ID
+        SONARQUBE_TOKEN = 'sqa_777211957f862209118b6b7af01eda379bf538fe' // Add your SonarQube authentication token credential ID
     }
 
     stages {
