@@ -16,7 +16,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'npm install' // If you have JavaScript code
+                    bat 'npm install' // If you have JavaScript code
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
                     def scannerHome = tool 'sonarscanner' // Define 'SonarQube Scanner' tool in Jenkins
 
                     withSonarQubeEnv('sonarqube') {
-                        sh """
+                        bat """
                         ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=Demo \
                             -Dsonar.sources=./src \
@@ -42,7 +42,7 @@ pipeline {
         stage('Deploy to Salesforce') {
             steps {
                 script {
-                    sh 'ant deploy' // Use your Ant deploy target or command
+                    bat 'ant deploy' // Use your Ant deploy target or command
                 }
             }
         }
